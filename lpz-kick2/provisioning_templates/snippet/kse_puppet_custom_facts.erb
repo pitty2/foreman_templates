@@ -1,0 +1,14 @@
+<%#
+name: KSE puppet_custom_facts
+snippet: true
+model: ProvisioningTemplate
+organizations:
+- Default Organization/KSE
+locations:
+- Default Location/LPZ
+-%>
+
+/usr/bin/mkdir -p /etc/facter/facts.d
+cat > /etc/facter/facts.d/hostgroup.yaml << __EOT__
+hostgroup: <%= @host.hostgroup %>
+__EOT__

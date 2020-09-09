@@ -1,0 +1,18 @@
+<%#
+name: Windows default iPXE
+snippet: false
+model: ProvisioningTemplate
+kind: iPXE
+organizations:
+- Default Organization
+locations:
+- Default Location
+-%>
+
+initrd <%= foreman_url('script') %> peSetup.cmd
+
+initrd ${boot-url}<%= @host.operatingsystem.bootfile(medium_provider,:bcd) %> BCD
+initrd ${boot-url}<%= @host.operatingsystem.bootfile(medium_provider,:bootsdi) %> boot.sdi
+initrd ${boot-url}<%= @host.operatingsystem.bootfile(medium_provider,:bootwim) %> boot.wim
+
+boot
