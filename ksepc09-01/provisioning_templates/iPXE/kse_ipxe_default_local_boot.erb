@@ -1,0 +1,17 @@
+<%#
+name: KSE iPXE default local boot
+snippet: false
+model: ProvisioningTemplate
+kind: iPXE
+oses:
+- CentOS
+organizations:
+- Default Organization
+- KSE
+locations:
+- Default Location
+-%>
+#!ipxe
+
+# Skips booting from network and continues booting from next device
+exit
